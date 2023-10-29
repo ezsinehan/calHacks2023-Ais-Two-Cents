@@ -1,7 +1,8 @@
 import openai
 import json
 
-openai.api_key = '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'
+# Set your OpenAI API key here
+openai.api_key = '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'
 
 # Read the dataset from the JSON file
 with open('/Users/sinehanezhilmuthu/Desktop/csShit/stev2/backend/gettingData/parsingPredictions/parsed_data.json', 'r') as file:
@@ -11,7 +12,7 @@ with open('/Users/sinehanezhilmuthu/Desktop/csShit/stev2/backend/gettingData/par
 dataset_str = json.dumps(dataset)
 
 # Create a GPT-3 prompt to generate recommendations based on the dataset
-prompt = f"Based on the provided dataset:\n{dataset_str}\n\nPlease provide specific recommendations to the speaker on how to increase positive emotions like interest and reduce negative emotions like confusion."
+prompt = f"Based on the provided dataset:\n{dataset_str}\n\nPlease provide specific recommendations related to the audiences emotions to the speaker whilist citing to parts in their speech using quotes, I want at least one quote and give a better example on how they could rephrase their speech, on how to increase positive emotions like interest and reduce negative emotions like confusion. Note that the text in the dataset is the speaker's speech. Only one reccomendation per run is needed, but go in detail."
 
 # Generate a response from GPT-3
 response = openai.Completion.create(
@@ -23,5 +24,9 @@ response = openai.Completion.create(
 # Extract the generated recommendations from the response
 recommendations = response.choices[0].text
 
-# Print or use the recommendations as needed
-print(recommendations)
+# Convert the recommendations to a dictionary
+recommendations_dict = {"recommendations": recommendations}
+
+# Save the recommendations as a JSON file
+with open('recommendations.json', 'w') as output_file:
+    json.dump(recommendations_dict, output_file)
