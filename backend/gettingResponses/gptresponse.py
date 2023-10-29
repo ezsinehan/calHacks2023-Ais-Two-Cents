@@ -1,32 +1,27 @@
-import json
 import openai
+import json
 
-# Load data from "parsed_data.json"
-with open("../gettingData/parsingPredictions/parsed_data.json", "r") as json_file:
-    data = json.load(json_file)
+openai.api_key = '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'
 
-# Extract text transcriptions from the JSON data
-text_transcriptions = [entry["transcription"] for entry in data if entry["transcription"]]
+# Read the dataset from the JSON file
+with open('/Users/sinehanezhilmuthu/Desktop/csShit/stev2/backend/gettingData/parsingPredictions/parsed_data.json', 'r') as file:
+    dataset = json.load(file)
 
-# Create a prompt by joining the text transcriptions
-prompt = "\n".join(text_transcriptions)
+# Convert the dataset to a string
+dataset_str = json.dumps(dataset)
 
-# Define your OpenAI API key
-api_key = "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"
+# Create a GPT-3 prompt to generate recommendations based on the dataset
+prompt = f"Based on the provided dataset:\n{dataset_str}\n\nPlease provide specific recommendations to the speaker on how to increase positive emotions like interest and reduce negative emotions like confusion."
 
-# Initialize the OpenAI API client
-openai.api_key = api_key
-
-# Make a request to the GPT API
+# Generate a response from GPT-3
 response = openai.Completion.create(
-    engine="text-davinci-002",  # Choose an appropriate engine
+    engine="text-davinci-002",
     prompt=prompt,
-    max_tokens=100,  # Adjust this as needed
-    temperature=0.7,  # Adjust the temperature for creativity
+    max_tokens=500
 )
 
-# Extract the generated text from the API response
-generated_text = response.choices[0].text
+# Extract the generated recommendations from the response
+recommendations = response.choices[0].text
 
-# Process the generated text as needed
-print(generated_text)
+# Print or use the recommendations as needed
+print(recommendations)
