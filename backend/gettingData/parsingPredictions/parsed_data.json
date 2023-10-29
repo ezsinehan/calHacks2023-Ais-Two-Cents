@@ -1,0 +1,47 @@
+[
+    {
+        "second": 0,
+        "transcription": "You can study for half hour.",
+        "top_emotions": {
+            "Calmness": 0.38688917954762775,
+            "Concentration": 0.32352958772427,
+            "Interest": 0.32195464158669496
+        }
+    },
+    {
+        "second": 1,
+        "transcription": "",
+        "top_emotions": {
+            "Calmness": 0.372463244276169,
+            "Concentration": 0.33745701420001495,
+            "Interest": 0.33107205346608776
+        }
+    },
+    {
+        "second": 2,
+        "transcription": "It doesn't take half hour break to recharge your batteries",
+        "top_emotions": {
+            "Calmness": 0.40633554871265704,
+            "Concentration": 0.34417372941970825,
+            "Interest": 0.3195106398600798
+        }
+    },
+    {
+        "second": 3,
+        "transcription": "",
+        "top_emotions": {
+            "Calmness": 0.40813968999263567,
+            "Concentration": 0.35306848891270465,
+            "Confusion": 0.31859491230585635
+        }
+    },
+    {
+        "second": 4,
+        "transcription": "",
+        "top_emotions": {
+            "Calmness": 0.42246761746131456,
+            "Concentration": 0.37381973232214266,
+            "Confusion": 0.3413992776320531
+        }
+    }
+]
