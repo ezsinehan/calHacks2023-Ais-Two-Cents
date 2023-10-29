@@ -2,7 +2,7 @@ import openai
 import json
 
 # Set your OpenAI API key here
-openai.api_key = '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'
+openai.api_key = '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'
 
 # Read the dataset from the JSON file
 with open('/Users/sinehanezhilmuthu/Desktop/csShit/stev2/backend/gettingData/parsingPredictions/parsed_data.json', 'r') as file:
